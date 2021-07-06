@@ -1,0 +1,40 @@
+plugins {
+	id 'org.springframework.boot' version '2.3.4.RELEASE'
+	id 'io.spring.dependency-management' version '1.0.10.RELEASE'
+	id 'java'
+}
+
+group = 'com.kdk'
+sourceCompatibility = '1.8'
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+
+	implementation 'org.projectlombok:lombok'
+	annotationProcessor 'org.projectlombok:lombok'
+
+	implementation 'org.springframework.boot:spring-boot-starter'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+
+	implementation 'io.springfox:springfox-swagger2:2.6.1'
+	implementation 'io.springfox:springfox-swagger-ui:2.6.1'
+
+	compile group: 'org.json', name: 'json', version: '20090211'
+	compile group: 'com.googlecode.json-simple', name: 'json-simple', version: '1.1'
+
+	implementation "org.liquibase:liquibase-core:3.10.1", {
+		exclude group: "ch.qos.logback", module: "logback-classic"
+	}
+
+	implementation 'mysql:mysql-connector-java:5.1.46'
+	implementation 'org.bgee.log4jdbc-log4j2:log4jdbc-log4j2-jdbc4:1.16'
+	implementation "org.mybatis.spring.boot:mybatis-spring-boot-starter:1.3.1"
+
+    implementation "org.mybatis:mybatis-spring:1.3.1"
+    implementation "org.mybatis:mybatis:3.4.5"
+
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}

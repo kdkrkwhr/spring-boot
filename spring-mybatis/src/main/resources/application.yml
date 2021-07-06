@@ -1,0 +1,15 @@
+server: 
+  port: 8085
+
+spring:
+  main:
+    datasource:
+      jdbc-url: jdbc:log4jdbc:mysql://localhost:3306/kdkdb?useUnicode=true&characterEncoding=utf8&useSSL=false
+      driver-class-name: net.sf.log4jdbc.sql.jdbcapi.DriverSpy
+      username: root
+      password: root
+  liquibase: 
+    change-log: classpath:/schema/changelog-master.xml
+
+logging:
+  config: classpath:logback-local.xml
