@@ -6,6 +6,7 @@
                       http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
 
 	<changeSet author="kimDongKi" id="table-init-0.1">
+
 		<createTable tableName="TB_DEFAULT">
 			<column name="IDX" type="BIGINT" autoIncrement="true">
 				<constraints nullable="false" primaryKey="true"/>

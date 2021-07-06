@@ -7,9 +7,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @Builder
-public class DefaultDto {
+public class ResultVo {
 
-  private Long idx;
-  private String result;
-
+  private Object resultData;
 }

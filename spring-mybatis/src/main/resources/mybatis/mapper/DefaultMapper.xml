@@ -3,8 +3,37 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.kdk.mapper.DefaultMapper">
 
+	<insert id="defaultInsert" parameterType="HashMap">
+		INSERT INTO 
+			TB_DEFAULT (
+				result
+			) VALUES (
+				#{result}
+			)
+	</insert>
+
 	<select id="defaultSelect" parameterType="String" resultType="DefaultDto">
-		SELECT #{parameter} AS default_result
+		SELECT 
+			idx,
+			result
+		FROM
+			TB_DEFAULT
+		WHERE
+			idx = #{idx}
 	</select>
 
+	<update id="defaultUpdate" parameterType="HashMap">
+		UPDATE TB_DEFAULT
+			SET 
+				result = #{result}
+			WHERE 
+				idx = #{idx}
+	</update>
+
+	<delete id="defaultDelete" parameterType="String">
+		DELETE FROM 
+			TB_DEFAULT
+		WHERE
+			idx = #{idx}
+	</delete>	
 </mapper>
