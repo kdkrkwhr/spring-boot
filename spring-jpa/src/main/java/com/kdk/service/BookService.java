@@ -4,6 +4,8 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.kdk.dto.BookRequestDto;
+import com.kdk.exception.NoValidException;
+import com.kdk.exception.SavingsException;
 import com.kdk.repo.book.Book;
 import com.kdk.repo.book.BookRepository;
 
@@ -13,7 +15,10 @@ public class BookService {
   @Autowired
   private BookRepository repository;
 
-  public Book bookInsert(BookRequestDto book) {
+  public Book bookInsert(BookRequestDto book) throws SavingsException {
+    if (book == null || book.getBookName() == null)
+      throw new NoValidException("BookName Check");
+
     return repository.save(Book.builder().bookName(book.getBookName()).build());
   }
 
@@ -21,7 +26,10 @@ public class BookService {
     return repository.findById(Long.parseLong(idx));
   }
 
-  public Book bookUpdate(BookRequestDto book) {
+  public Book bookUpdate(BookRequestDto book) throws SavingsException {
+    if (book == null || book.getBookName() == null || book.getIdx() == null)
+      throw new NoValidException("Parameter Data Check");
+
     return repository.save(
         Book.builder().bookName(repository.findById(book.getIdx()).get().getBookName()).build());
   }
