@@ -1,0 +1,26 @@
+spring: 
+  profiles: 
+    include:
+      - redis
+    active: zero-data
+
+server: 
+  port: 8085
+
+logging: 
+  config: classpath:logback-local.xml
+
+
+---
+# zero-data profile
+spring: 
+  profiles: zero-data
+  redis: 
+    database: 0
+
+---
+# one-data profile
+spring: 
+  profiles: one-data
+  redis: 
+    database: 1
