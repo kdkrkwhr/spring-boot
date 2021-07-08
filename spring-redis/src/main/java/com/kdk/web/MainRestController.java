@@ -41,23 +41,23 @@ public class MainRestController {
 
   @ApiImplicitParams({
     @ApiImplicitParam
-    (name = "idx", value = "조회 Index", required = true),
+    (name = "userName", value = "사용자 이름", required = true),
   })
   @ApiOperation(value = "Redis Data 조회 API", tags = "Redis")
   @RequestMapping(value = "/select", method = RequestMethod.GET)
-  public ResponseEntity<ResultVo> select(String key) throws RedisParsingException {
-    ResultVo result = ResultVo.builder().resultData(service.bookSelect(key == null ? "" : key.trim())).build();
+  public ResponseEntity<ResultVo> select(String userName) throws RedisParsingException {
+    ResultVo result = ResultVo.builder().resultData(service.bookSelect(userName == null ? "" : userName.trim())).build();
     return new ResponseEntity<>(result, HttpStatus.OK);
   }
 
   @ApiOperation(value = "Redis Data 삭제 API", tags = "Redis")
   @ApiImplicitParams({
     @ApiImplicitParam
-    (name = "idx", value = "조회 Index", required = true),
+    (name = "userName", value = "사용자 이름", required = true),
   })
   @RequestMapping(value = "/delete", method = RequestMethod.DELETE)
-  public ResponseEntity<ResultVo> delete(String key) {
-    ResultVo result = ResultVo.builder().resultData(service.bookDelete(key == null ? "" : key.trim())).build();
+  public ResponseEntity<ResultVo> delete(String userName) {
+    ResultVo result = ResultVo.builder().resultData(service.bookDelete(userName == null ? "" : userName.trim())).build();
     return new ResponseEntity<>(result, HttpStatus.OK);
   }
 }
