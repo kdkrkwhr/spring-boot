@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.kdk.common.ResultVo;
 import com.kdk.dto.BookRequestDto;
 import com.kdk.exception.NoValidException;
+import com.kdk.repo.book.Book;
 import com.kdk.service.BookService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
@@ -31,7 +32,7 @@ public class MainRestController {
   @ApiOperation(value = "JPA 입력 API", tags = "JPA")
   @ApiImplicitParams({
     @ApiImplicitParam
-    (name = "book", value = "입력 데이터", required = true),
+    (name = "bookName", value = "책 이름", required = true),
   })
   @RequestMapping(value = "/insert", method = RequestMethod.POST)
   public ResponseEntity<ResultVo> insert(@RequestBody BookRequestDto book) {
@@ -41,7 +42,7 @@ public class MainRestController {
 
   @ApiImplicitParams({
     @ApiImplicitParam
-    (name = "idx", value = "조회 Index", required = true),
+    (name = "idx", value = "Index", required = true),
   })
   @ApiOperation(value = "JPA 조회 API", tags = "JPA")
   @RequestMapping(value = "/select", method = RequestMethod.GET)
@@ -54,11 +55,11 @@ public class MainRestController {
     @ApiImplicitParam
     (name = "idx", value = "조회 Index", required = true),
     @ApiImplicitParam
-    (name = "book", value = "입력 데이터", required = true),
+    (name = "bookName", value = "책 이름", required = true),
   })
   @ApiOperation(value = "JPA 수정 API", tags = "JPA")
   @RequestMapping(value = "/update", method = RequestMethod.PUT)
-  public ResponseEntity<ResultVo> update(@RequestBody BookRequestDto book) {
+  public ResponseEntity<ResultVo> update(@RequestBody Book book) {
     ResultVo result = ResultVo.builder().resultData(service.bookUpdate(book)).build();
     return new ResponseEntity<>(result, HttpStatus.OK);
   }

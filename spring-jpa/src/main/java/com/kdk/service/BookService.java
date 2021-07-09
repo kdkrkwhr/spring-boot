@@ -26,12 +26,13 @@ public class BookService {
     return repository.findById(Long.parseLong(idx));
   }
 
-  public Book bookUpdate(BookRequestDto book) throws SavingsException {
+  public Book bookUpdate(Book book) throws SavingsException {
     if (book == null || book.getBookName() == null || book.getIdx() == null)
       throw new NoValidException("Parameter Data Check");
+    Book targetBook = repository.findById(book.getIdx()).get();
+    targetBook.setBookName(book.getBookName());
 
-    return repository.save(
-        Book.builder().bookName(repository.findById(book.getIdx()).get().getBookName()).build());
+    return repository.save(targetBook);
   }
 
   public boolean bookDelete(String idx) {
