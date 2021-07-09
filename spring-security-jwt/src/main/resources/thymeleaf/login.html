@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>OAuth2 TEST</title>
+</head>
+<body>
+<div class="row">
+    <div class="col-md-10">
+        <div th:if="${not #strings.isEmpty(userName)}">
+            <img style="width:45px; height:45px" src="/image/unnamed.png" th:src="${picture}"
+                 class="rounded-circle img-thumbnail img-responsive">
+            <span id="login-user" th:text="${userName}">사용자</span> 님, 안녕하세요.
+            <a href="/logout" class="btn btn-sm btn-info active" role="button">Logout</a>
+        </div>
+        <div th:if="${#strings.isEmpty(userName)}">
+            <a href="/oauth2/authorization/google" class="btn btn-sm btn-success active" role="button">Google Login</a>
+        </div>
+    </div>
+</div>
+</body>
+</html>
