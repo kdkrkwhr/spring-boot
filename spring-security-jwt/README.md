@@ -1,10 +1,10 @@
-# Spring-Boot ==> Oauth2 (Google)
+# Spring-Boot ==> Security (JWT)
 
 
 ## **E**nvironment
 
 * Spring Security
-* OAuth2 (Google)
+* jwt 
 * JPA
 * QueryDSL
 * Lombok
@@ -24,6 +24,8 @@ apply plugin: "com.ewerk.gradle.plugins.querydsl"
 ...
 dependencies {
   implementation 'org.springframework.boot:spring-boot-starter-security'
+  ...
+  implementation group: 'io.jsonwebtoken', name: 'jjwt', version: '0.2'
   ...
   implementation 'org.springframework.boot:spring-boot-starter-oauth2-client'
   ...

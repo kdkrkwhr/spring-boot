@@ -42,7 +42,7 @@ dependencies {
 	implementation 'nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect'
 
 	implementation 'org.springframework.boot:spring-boot-starter-security'
-	implementation 'org.springframework.boot:spring-boot-starter-oauth2-client'
+	implementation group: 'io.jsonwebtoken', name: 'jjwt', version: '0.2'
 }
 
 // querydsl 적용

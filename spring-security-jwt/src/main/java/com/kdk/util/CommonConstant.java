@@ -1,6 +1,5 @@
 package com.kdk.util;
 
-import java.text.SimpleDateFormat;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
@@ -9,7 +8,7 @@ import org.springframework.stereotype.Component;
 @Component
 abstract public class CommonConstant {
 
-  abstract public static class ResponseUtil {
+  abstract public static class Response {
 
     public static final String API_RESULT_CODE_KEY = "resultCode";
     public static final Long API_RESULT_CODE_SUCC = 1L;
@@ -23,7 +22,4 @@ abstract public class CommonConstant {
       return Collections.unmodifiableMap(result);
     }
   }
-
-  public static final SimpleDateFormat COM_SDF = new SimpleDateFormat("yyyyMMddHHmm");
-
 }
