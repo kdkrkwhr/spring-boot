@@ -1,0 +1,25 @@
+server: 
+  port: 8085
+
+spring:
+  profiles: 
+    include:
+      - oauth2-google
+  datasource:
+    url: jdbc:log4jdbc:mysql://localhost:3306/odod?useUnicode=true&characterEncoding=utf8&useSSL=false
+    driver-class-name: net.sf.log4jdbc.sql.jdbcapi.DriverSpy
+    username: root
+    password: root
+  jpa: 
+    database: mysql
+    generate-ddl: true
+    show-sql: true
+  thymeleaf:
+    cache: false
+    mode: HTML
+    prefix: classpath:/
+    suffix: .html
+    view-names: thymeleaf/*
+
+logging:
+  config: classpath:logback-local.xml
