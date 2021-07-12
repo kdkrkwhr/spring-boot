@@ -27,14 +27,10 @@ public class ShopService {
     HashMap<String, Object> result = new LinkedHashMap<>();
     String tType = "";
     String tClassName = "";
+    ProductTagInfo target = repository.findByStoreKeyAndTargetType(req.getStoreKey(), req.getType());
 
-    for (ProductTagInfo t : repository.findAll()) {
-      if (t.getStoreKey().equals(req.getStoreKey())) {
-        tType = t.getTargetType();
-        tClassName = t.getClassName();
-        break;
-      }
-    }
+    tType = target.getTargetType();
+    tClassName = target.getClassName();
 
     result.put("crawlingData", CrawlerUtil.findByTag(req.getTargetDomain(), tType, tClassName));
 

@@ -27,7 +27,7 @@ public class CrawlerUtil {
       List<String> tagList = new ArrayList<String>();
       for (Element el :html.getElementsByClass(tClassName)) {
         logger.info("value :: {}", el.getElementsByClass(tClassName));
-        tagList.add(el.getElementsByClass(tClassName).toString());
+        tagList.add(el.getElementsByClass(tClassName).text().toString());
       }
 
       result.put(tType, tagList);

@@ -6,4 +6,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface ProducttagInfoRepository extends JpaRepository<ProductTagInfo, Long> {
 
+  ProductTagInfo findByStoreKeyAndTargetType(String storeKey, String targetType);
+
 }
