@@ -25,14 +25,9 @@ public class ShopService {
 
   public HashMap<String, Object> crawlingSearch(CrRequestDto req) {
     HashMap<String, Object> result = new LinkedHashMap<>();
-    String tType = "";
-    String tClassName = "";
     ProductTagInfo target = repository.findByStoreKeyAndTargetType(req.getStoreKey(), req.getType());
 
-    tType = target.getTargetType();
-    tClassName = target.getClassName();
-
-    result.put("crawlingData", CrawlerUtil.findByTag(req.getTargetDomain(), tType, tClassName));
+    result.put("crawlingData", CrawlerUtil.findByTag(req.getTargetDomain(), target.getTargetType(), target.getClassName()));
 
     return result;
   }

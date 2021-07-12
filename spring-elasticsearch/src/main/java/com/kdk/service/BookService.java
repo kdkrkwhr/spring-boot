@@ -1,8 +1,6 @@
 package com.kdk.service;
 
 import java.util.Date;
-import java.util.List;
-import org.elasticsearch.action.search.SearchRequest;
 import org.elasticsearch.index.query.QueryBuilder;
 import org.elasticsearch.index.query.QueryBuilders;
 import org.springframework.beans.factory.annotation.Autowired;
