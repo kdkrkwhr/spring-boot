@@ -44,3 +44,29 @@ dependencies {
   implementation 'io.springfox:springfox-swagger-ui:2.6.1'
   ...
 }
+
+// querydsl 적용
+def querydslSrcDir = 'src/main/generated'
+
+querydsl {
+  library = "com.querydsl:querydsl-apt"
+  jpa = true
+  querydslSourcesDir = querydslSrcDir
+}
+
+compileQuerydsl{
+  options.annotationProcessorPath = configurations.querydsl
+}
+
+configurations {
+  querydsl.extendsFrom compileClasspath
+}
+
+sourceSets {
+  main {
+    java {
+      srcDirs = ['src/main/java', querydslSrcDir]
+    }
+  }
+}
+```
