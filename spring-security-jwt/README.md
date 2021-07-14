@@ -65,12 +65,10 @@ configurations {
 }
 
 sourceSets {
-    main {
-        java {
-            srcDirs = ['src/main/java', querydslSrcDir]
-        }
+  main {
+    java {
+      srcDirs = ['src/main/java', querydslSrcDir]
     }
+  }
 }
 ```
-
-
