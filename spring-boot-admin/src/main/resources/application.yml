@@ -1,0 +1,19 @@
+spring:
+  security:
+    user:
+      name: kdk
+      password: kdk123
+  boot:
+    admin:
+      ui:
+        brand: <img src="assets/img/icon-spring-boot-admin.svg"><span>모니터링 페이지</span>
+        title: Admin-Title
+
+management:
+    endpoints:
+        web:
+            exposure:
+                include: "*"
+
+server: 
+  port: 8086
