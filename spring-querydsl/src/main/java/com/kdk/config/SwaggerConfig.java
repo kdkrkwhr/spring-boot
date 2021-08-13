@@ -18,7 +18,7 @@ public class SwaggerConfig {
   @Bean
   public Docket api() {
     return new Docket(DocumentationType.SWAGGER_2).select()
-        .apis(RequestHandlerSelectors.basePackage("com.kdk.controller"))
+        .apis(RequestHandlerSelectors.basePackage("com.kdk.web"))
         .paths(PathSelectors.any()).build().apiInfo(apiDocumentBuild());
   }
 

@@ -35,7 +35,7 @@ public class BookService {
     JPAQueryFactory queryFactory = new JPAQueryFactory(em);
 
     Book book = queryFactory.selectFrom(qBook)
-        .where(qBook.id.eq(Long.parseLong(idx)))
+        .where(qBook.idx.eq(Long.parseLong(idx)))
         .fetchOne();
 
     return book;
@@ -54,7 +54,7 @@ public class BookService {
     JPAQueryFactory queryFactory = new JPAQueryFactory(em);
 
     long result = queryFactory.update(qBook)
-        .where(qBook.id.eq(book.getIdx()))
+        .where(qBook.idx.eq(book.getIdx()))
         .set(qBook.bookName, book.getBookName()).execute();
 
     return result;
@@ -65,7 +65,7 @@ public class BookService {
     JPAQueryFactory queryFactory = new JPAQueryFactory(em);
 
     long result = queryFactory.delete(qBook)
-        .where(qBook.id.eq(Long.parseLong(idx))).execute();
+        .where(qBook.idx.eq(Long.parseLong(idx))).execute();
 
     return result;
   }

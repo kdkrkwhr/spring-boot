@@ -11,6 +11,23 @@ spring:
     database: mysql
     generate-ddl: true
     show-sql: true
+  boot:
+    admin:
+      client:
+        url: http://localhost:8086
+        instance:
+          metadata:
+            user:
+              name: kdkuser
+              password: kdk
+        username: kdk
+        password: kdk123
+
+management:
+    endpoints:
+        web:
+            exposure:
+                include: "*"
 
 logging: 
   config: classpath:logback-local.xml
