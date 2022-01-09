@@ -1,0 +1,12 @@
+spring:
+  profiles:
+    active: local
+
+---
+# local development server
+spring:
+  profiles: local
+server: 
+  port: 8001
+logging:
+  config: classpath:logback-local.xml
