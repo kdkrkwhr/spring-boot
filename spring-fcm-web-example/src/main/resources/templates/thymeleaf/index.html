@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+	<script src="https://www.gstatic.com/firebasejs/6.5.0/firebase.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/6.5.0/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/6.5.0/firebase-messaging.js"></script>
+	<script th:inline="javascript">
+		let firebaseConfig = { // fireBaseConfig .
+			};
+
+	    firebase.initializeApp(firebaseConfig);
+
+	    const messaging = firebase.messaging();
+	    messaging.requestPermission()
+	        .then(function() {
+	            return messaging.getToken();
+	        })
+	        .then(async function(token) {
+	            console.log(token);
+	            messaging.onMessage(payload => {
+	                console.log(payload);
+
+	            })
+	        })
+	</script>
+</head>
+<body style="background: azure; text-align: center;">
+	<h2>FCM - TEST</h2>
+</body>
+</html>

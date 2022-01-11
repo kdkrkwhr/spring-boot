@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <!--로그 파일 저장 위치 -->
+    <property name="LOGS_PATH" value="D:logs/spring-fcm-server"/>
+
+    <appender name="ROOT_LOG_REF"
+              class="ch.qos.logback.core.ConsoleAppender">
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <pattern>[%-5level] [%d{yy-MM-dd HH:mm:ss SSS}] [%thread] [%logger{10}:%line] - %msg%n</pattern>
+        </layout>
+    </appender>
+
+    <appender name="PACKAGE_LOG_REF"
+              class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOGS_PATH}/applicatoin-push-service-logback.log</file>
+        <encoder>
+            <pattern>[%-5level] [%d{yy-MM-dd HH:mm:ss SSS}] [%thread] [%logger{10}:%line] - %msg%n</pattern>
+        </encoder>
+        <rollingPolicy
+                class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOGS_PATH}/logback.%d{yyyy-MM-dd}.%i.log.gz
+            </fileNamePattern>
+            <timeBasedFileNamingAndTriggeringPolicy
+                    class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <maxFileSize>10MB</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+            <maxHistory>30</maxHistory>
+        </rollingPolicy>
+    </appender>
+
+    <root level="INFO">
+        <appender-ref ref="ROOT_LOG_REF"/>
+    </root>
+
+    <logger name="com.kdk" level="ERROR">
+        <appender-ref ref="PACKAGE_LOG_REF"/>
+    </logger>
+
+</configuration>
