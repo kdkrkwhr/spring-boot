@@ -36,11 +36,11 @@ public class FcmSendRestApiController {
 
     String serviceKey = req.getServiceKey() == null ? "" : req.getServiceKey();
     String[] tokens = req.getTokens().length == 0 ? new String[0] : req.getTokens();
-    String messageType = req.getMessageType() == null ? "" : req.getMessageType();
+    String title = req.getTitle() == null ? "" : req.getTitle();
     String message = req.getMessage() == null ? "" : req.getMessage();
     String notifications;
 
-    notifications = FcmDataUtil.pushMultiDataProcessing(tokens, messageType, message);
+    notifications = FcmDataUtil.pushMultiDataProcessing(tokens, title, message);
 
     HttpHeaders headers = new HttpHeaders();
     MediaType mediaType = new MediaType("application", "json", StandardCharsets.UTF_8);
@@ -83,7 +83,7 @@ public class FcmSendRestApiController {
     try {
 
       for (FcmRequestDto fcmData : req.getFcmBody()) {
-        String notifications = FcmDataUtil.pushOneDataProcessing(fcmData.getToken(), fcmData.getMessageType(), fcmData.getMessage());
+        String notifications = FcmDataUtil.pushOneDataProcessing(fcmData.getToken(), fcmData.getTitle(), fcmData.getMessage());
 
         HttpHeaders headers = new HttpHeaders();
         MediaType mediaType = new MediaType("application", "json", StandardCharsets.UTF_8);

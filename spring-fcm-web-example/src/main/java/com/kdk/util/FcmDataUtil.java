@@ -7,7 +7,7 @@ import org.json.JSONObject;
 
 public class FcmDataUtil {
 
-  public static String pushMultiDataProcessing(String[] tokens, String messageType, String message)
+  public static String pushMultiDataProcessing(String[] tokens, String title, String message)
       throws JSONException, UnsupportedEncodingException {
     JSONObject body = new JSONObject();
     JSONArray array = new JSONArray();
@@ -18,12 +18,10 @@ public class FcmDataUtil {
     body.put("content_available", true);
 
     JSONObject notification = new JSONObject();
-    notification.put("messageType", messageType);
-    notification.put("message", new JSONObject(message));
+    notification.put("title", title);
+    notification.put("body", message);
 
-    body.put("title", "TESTWSTT");
-    body.put("body", "body TEST");
-    body.put("data", notification);
+    body.put("notification", notification);
 
     return body.toString();
   }

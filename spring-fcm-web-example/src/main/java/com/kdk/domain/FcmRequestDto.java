@@ -12,7 +12,7 @@ public class FcmRequestDto {
   private String serviceKey;
   private String token;
   private String[] tokens;
-  private String messageType;
+  private String title;
   private String message;
 
 }
