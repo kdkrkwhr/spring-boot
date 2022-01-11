@@ -6,7 +6,8 @@
 	<script src="https://www.gstatic.com/firebasejs/6.5.0/firebase-app.js"></script>
 	<script src="https://www.gstatic.com/firebasejs/6.5.0/firebase-messaging.js"></script>
 	<script th:inline="javascript">
-		let firebaseConfig = { // fireBaseConfig .
+		const firebaseConfig = {
+			  #{firebaseConfig}
 			};
 
 	    firebase.initializeApp(firebaseConfig);
@@ -17,10 +18,9 @@
 	            return messaging.getToken();
 	        })
 	        .then(async function(token) {
-	            console.log(token);
+	        	console.log(token);
 	            messaging.onMessage(payload => {
 	                console.log(payload);
-
 	            })
 	        })
 	</script>
