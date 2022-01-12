@@ -35,8 +35,6 @@ public class FcmDataUtil {
 
     JSONObject notification = new JSONObject();
     notification.put("messageType", messageType);
-    body.put("title", "TESTWSTT");
-    body.put("body", "body TEST");
     notification.put("message", new JSONObject(message));
 
     body.put("data", notification);

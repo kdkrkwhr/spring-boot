@@ -67,7 +67,7 @@ public class FcmSendRestApiController {
       resultCode = CommonConstant.ResponseUtil.API_RESULT_CODE_FAIL;
     }
 
-    responseMp.put("resultCode", resultCode);
+    responseMp.put(CommonConstant.ResponseUtil.API_RESULT_CODE_KEY, resultCode);
     return new ResponseEntity<>(responseMp, HttpStatus.OK);
   }
 
@@ -102,7 +102,7 @@ public class FcmSendRestApiController {
       resultCode = CommonConstant.ResponseUtil.API_RESULT_CODE_FAIL;
     }
 
-    responseMp.put("resultCode", resultCode);
+    responseMp.put(CommonConstant.ResponseUtil.API_RESULT_CODE_KEY, resultCode);
 
     return new ResponseEntity<>(responseMp, HttpStatus.OK);
   }

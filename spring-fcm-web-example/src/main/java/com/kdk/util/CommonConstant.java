@@ -10,7 +10,7 @@ abstract public class CommonConstant {
 
   abstract public static class ResponseUtil {
 
-    public static final String API_RESULT_CODE_KEY = "resultCode";
+    public static final String API_RESULT_CODE_KEY = "result";
     public static final Long API_RESULT_CODE_SUCC = 1L;
     public static final Long API_RESULT_CODE_FAIL = 0L;
 

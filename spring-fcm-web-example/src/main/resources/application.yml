@@ -1,6 +1,8 @@
 spring:
   profiles:
     active: local
+    include:
+      - redis
   thymeleaf:
     cache: false
     mode: HTML
