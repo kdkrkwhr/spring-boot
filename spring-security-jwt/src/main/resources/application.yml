@@ -6,10 +6,10 @@ spring:
     include:
       - aws
   datasource:
-    url: jdbc:log4jdbc:mysql://localhost:3306/odod?useUnicode=true&characterEncoding=utf8&useSSL=false
+    url: jdbc:log4jdbc:mysql://localhost:3306/backend?useUnicode=true&characterEncoding=utf8&useSSL=false
     driver-class-name: net.sf.log4jdbc.sql.jdbcapi.DriverSpy
-    username: root
-    password: root
+    username: ENC(YU+8WnrHcakg8/UZjrU3vw==)
+    password: ENC(ERyuianQZWGTkUF0p7Txig==)
   jpa: 
     database: mysql
     generate-ddl: true
@@ -23,6 +23,12 @@ spring:
 
 jwt: 
   secret: jwtsecret
+
+jasypt:
+  encryptor:
+    bean: jasyptStringEncryptor
+
+propkey: kdkdongki1997
 
 logging: 
   config: classpath:logback-local.xml
