@@ -21,9 +21,6 @@ spring:
     suffix: .html
     view-names: thymeleaf/*
 
-jwt: 
-  secret: jwtsecret
-
 jasypt:
   encryptor:
     bean: jasyptStringEncryptor
