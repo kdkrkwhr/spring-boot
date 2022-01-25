@@ -4,7 +4,9 @@ import java.io.UnsupportedEncodingException;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import lombok.experimental.UtilityClass;
 
+@UtilityClass
 public class FcmDataUtil {
 
   public static String pushMultiDataProcessing(String[] tokens, String title, String message)

@@ -10,7 +10,9 @@ import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.ValueOperations;
 import org.springframework.data.redis.core.ZSetOperations;
 import org.springframework.stereotype.Component;
+import lombok.experimental.UtilityClass;
 
+@UtilityClass
 @Component
 public class RedisManageUtil {
 

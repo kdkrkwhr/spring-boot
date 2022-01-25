@@ -25,7 +25,6 @@ public class JasyptConfig {
     config.setProviderName("SunJCE");
     config.setSaltGeneratorClassName("org.jasypt.salt.RandomSaltGenerator");
     config.setStringOutputType("base64");
-
     encryptor.setConfig(config);
 
     return encryptor;
