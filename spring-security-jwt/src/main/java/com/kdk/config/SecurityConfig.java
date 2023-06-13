@@ -1,6 +1,5 @@
 package com.kdk.config;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -26,17 +25,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     return super.authenticationManagerBean();
   }
 
-  @Autowired
-  private JwtAuthenticationEntryPoint jwtAuthenticationEntryPoint;
+  private final JwtAuthenticationEntryPoint jwtAuthenticationEntryPoint;
 
-  @Autowired
-  private UserDetailsService jwtUserDetailsService;
+  private final UserDetailsService jwtUserDetailsService;
 
-  @Autowired
-  private JwtRequestFilter jwtRequestFilter;
+  private final JwtRequestFilter jwtRequestFilter;
 
-  @Autowired
-  public void configGlobal(AuthenticationManagerBuilder auth) throws Exception {
+  public final void configGlobal(AuthenticationManagerBuilder auth) throws Exception {
     auth.userDetailsService(jwtUserDetailsService).passwordEncoder(passwordEncoder());
   }
 

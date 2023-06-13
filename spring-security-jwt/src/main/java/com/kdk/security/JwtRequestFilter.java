@@ -5,9 +5,8 @@ import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -16,16 +15,14 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 import com.kdk.util.JwtTokenUtil;
 
+@Slf4j
 @Component
+@RequiredArgsConstructor
 public class JwtRequestFilter extends OncePerRequestFilter {
 
-  static final Logger logger = LoggerFactory.getLogger(JwtRequestFilter.class);
+  private final JwtUserDetailsService jwtUserDetailsService;
 
-  @Autowired
-  private JwtUserDetailsService jwtUserDetailsService;
-
-  @Autowired
-  private JwtTokenUtil jwtTokenUtil;
+  private final JwtTokenUtil jwtTokenUtil;
 
   @Override
   protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response,
@@ -44,11 +41,11 @@ public class JwtRequestFilter extends OncePerRequestFilter {
         username = jwtTokenUtil.getUserEmailFromToken(jwtToken);
 
       } catch (IllegalArgumentException ex) {
-        logger.error("Unable to get JWT token", ex);
+        log.error("Unable to get JWT token", ex);
       }
 
     } else {
-      logger.warn("JWT token does not begin with Bearer String");
+      log.warn("JWT token does not begin with Bearer String");
     }
 
     if (username != null && SecurityContextHolder.getContext().getAuthentication() == null) {

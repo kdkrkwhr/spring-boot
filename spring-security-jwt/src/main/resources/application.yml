@@ -6,10 +6,10 @@ spring:
     include:
       - aws
   datasource:
-    url: jdbc:log4jdbc:mysql://localhost:3306/backend?useUnicode=true&characterEncoding=utf8&useSSL=false
+    url: jdbc:log4jdbc:mysql://localhost:3306/waw?useUnicode=true&characterEncoding=utf8&useSSL=false
     driver-class-name: net.sf.log4jdbc.sql.jdbcapi.DriverSpy
-    username: ENC(YU+8WnrHcakg8/UZjrU3vw==)
-    password: ENC(ERyuianQZWGTkUF0p7Txig==)
+    username: ENC(Hx84VDf+u8D5Vd/P/khHjg==)
+    password: ENC(pzj32+R+xteeoWbVQ5bcGg==)
   jpa: 
     database: mysql
     generate-ddl: true
@@ -20,12 +20,13 @@ spring:
     prefix: classpath:/
     suffix: .html
     view-names: thymeleaf/*
-
+  main:
+    allow-circular-references: true
 jasypt:
   encryptor:
     bean: jasyptStringEncryptor
 
-propkey: kdkdongki1997
+prop-key: kdkdongki1997
 
 logging: 
   config: classpath:logback-local.xml

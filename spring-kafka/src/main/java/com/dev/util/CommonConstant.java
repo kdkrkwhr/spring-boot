@@ -24,7 +24,7 @@ abstract public class CommonConstant {
     }
   }
 
-  public static final String KAFKA_TOPIC = "kdk-topic";
+  public static final String KAFKA_TOPIC = "dev-topic";
 
   public static final SimpleDateFormat COM_SDF = new SimpleDateFormat("yyyyMMddHHmm");
 }

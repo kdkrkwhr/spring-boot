@@ -1,5 +1,6 @@
 package com.kdk.service;
 
+import com.kdk.common.KafkaRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,9 +20,9 @@ public class KafkaProducerService {
     this.kafkaTemplate = kafkaTemplate;
   }
 
-  public String sendMessage(String message) {
-    logger.info("Send Message :: {}", message);
-    this.kafkaTemplate.send(CommonConstant.KAFKA_TOPIC, message);
-    return message;
+  public Object sendMessage(KafkaRequest request) {
+    logger.info("Send Message :: {}", request.getMessage());
+    this.kafkaTemplate.send(request.getMessage().isEmpty() ? CommonConstant.KAFKA_TOPIC : request.getTopic(), request.getMessage());
+    return request;
   }
 }

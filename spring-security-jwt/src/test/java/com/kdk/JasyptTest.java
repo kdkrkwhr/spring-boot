@@ -1,7 +1,9 @@
 package com.kdk;
 
+import lombok.extern.slf4j.Slf4j;
 import org.jasypt.encryption.pbe.StandardPBEStringEncryptor;
 
+@Slf4j
 public class JasyptTest {
 
   public static void main(String[] args) {
@@ -11,7 +13,7 @@ public class JasyptTest {
   static void jasypt() {
     String url = "root";
     String username = "root";
-    String password = "root";
+    String password = "";
 
     System.out.println(jasyptEncoding(url));
     System.out.println(jasyptEncoding(username));
